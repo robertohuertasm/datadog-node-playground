@@ -1,7 +1,10 @@
 {
   "tests": [
     {
-      "id": "https://app.datadoghq.com/synthetics/details/n2u-32z-cqq"
+      "id": "n2u-32z-cqq"
+    },
+    {
+      "id": "mqm-tp5-f3y"
     }
   ]
 }

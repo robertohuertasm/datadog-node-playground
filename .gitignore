@@ -2,3 +2,4 @@ out
 dist
 node_modules
 datadog-ci.json
+logs.log

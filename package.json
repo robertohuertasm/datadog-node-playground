@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "test": "datadog-ci synthetics run-tests",
+    "tunnel": "datadog-ci synthetics run-tests --config datadog-ci.json --tunnel"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +14,8 @@
   "dependencies": {
     "express": "^4.18.1",
     "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "@datadog/datadog-ci": "^1.13.1"
   }
 }

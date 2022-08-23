@@ -4,13 +4,17 @@ const winston = require('winston');
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.json(),
-  transports: [new winston.transports.Console()],
+  transports: [
+    new winston.transports.Console(),
+    // new winston.transports.File({ filename: 'logs.log' }),
+  ],
 });
 
 const app = express();
 const port = 8080;
 
 app.get('/', (req, res) => {
+  logger.info('main entry point called');
   res.send('Hello World!');
 });
 
