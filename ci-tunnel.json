@@ -1,0 +1,11 @@
+{
+  "datadogSite": "datadoghq.com",
+  "failOnCriticalErrors": true,
+  "failOnTimeout": "true",
+  "pollingTimeout": 120000,
+  "files": ["**/*.synthetics.json"],
+  "tunnel": true,
+  "global": {
+    "startUrl": "http://localhost:8080{{PATHNAME}}"
+  }
+}

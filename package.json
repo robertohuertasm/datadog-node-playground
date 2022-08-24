@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./index.js",
     "test": "datadog-ci synthetics run-tests",
-    "tunnel": "datadog-ci synthetics run-tests --config datadog-ci.json --tunnel"
+    "tunnel": "datadog-ci synthetics run-tests --config ci-tunnel.json",
+    "ci": "npm run start & npm run tunnel && kill $(lsof -t -i :8080)"
   },
   "keywords": [],
   "author": "",
