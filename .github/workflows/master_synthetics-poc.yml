@@ -14,13 +14,22 @@ env:
   DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
 
 jobs:
-
+  # ignoring tests results. we want them to fail to get some data into datadog.
   test: 
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+
       - name: Unit tests
-        run: NODE_OPTIONS="-r dd-trace/ci/init" DD_ENV=ci DD_SERVICE=synthetics-poc npm run test
+        run: |
+          npm install
+          NODE_OPTIONS="-r dd-trace/ci/init" DD_ENV=ci DD_SERVICE=synthetics-poc npm run test
         shell: bash
         env:
           DD_CIVISIBILITY_AGENTLESS_ENABLED: true
