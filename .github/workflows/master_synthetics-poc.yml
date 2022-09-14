@@ -14,6 +14,19 @@ env:
   DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
 
 jobs:
+
+  test: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Unit tests
+        run: NODE_OPTIONS="-r dd-trace/ci/init" DD_ENV=ci DD_SERVICE=synthetics-poc npm run test
+        shell: bash
+        env:
+          DD_CIVISIBILITY_AGENTLESS_ENABLED: true
+          DD_API_KEY: ${{ secrets.DATADOG_API_KEY }}
+          DD_SITE: datadoghq.com
+
   build:
     runs-on: ubuntu-latest
 
