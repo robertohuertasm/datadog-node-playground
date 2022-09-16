@@ -3,3 +3,4 @@ dist
 node_modules
 datadog-ci.json
 logs.log
+.DS_store
