@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - synthetics-poc
+name: Build and deploy Node.js app to Azure Web App
 
 on:
   push:
@@ -15,7 +15,7 @@ env:
 
 jobs:
   # ignoring tests results. we want them to fail to get some data into datadog.
-  test: 
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +29,7 @@ jobs:
       - name: Unit tests
         run: |
           npm install
-          NODE_OPTIONS="-r dd-trace/ci/init" DD_ENV=ci DD_SERVICE=synthetics-poc npm run test
+          NODE_OPTIONS="-r dd-trace/ci/init" DD_ENV=ci DD_SERVICE=datadog-node-playground npm run test
         shell: bash
         env:
           DD_CIVISIBILITY_AGENTLESS_ENABLED: true
@@ -51,7 +51,7 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          
+
       - name: local synthetics
         run: npm run ci
 
@@ -78,7 +78,9 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'synthetics-poc'
+          # app-name: 'synthetics-poc'
+          app-name: 'datadog-node-playground'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_39A5AB4372AB45838B32C72E3C5D5FFB }}
+          # publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_39A5AB4372AB45838B32C72E3C5D5FFB }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_d2e8e6904eb34701b7f150035141a86b }}
           package: .
