@@ -84,9 +84,9 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          # app-name: 'synthetics-poc'
-          app-name: 'datadog-node-playground'
+          app-name: 'synthetics-poc'
+          # app-name: 'datadog-node-playground'
           slot-name: 'Production'
-          # publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_39A5AB4372AB45838B32C72E3C5D5FFB }}
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_d2e8e6904eb34701b7f150035141a86b }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_39A5AB4372AB45838B32C72E3C5D5FFB }}
+          # publish-profile: ${{ secrets.AzureAppService_PublishProfile_d2e8e6904eb34701b7f150035141a86b }}
           package: .

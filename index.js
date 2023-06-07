@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 app.get('/info', (req, res) => {
   logger.info('INFO');
-  res.send('Logging info');
+  res.send('Logging info v2');
 });
 
 app.get('/error', (req, res) => {
