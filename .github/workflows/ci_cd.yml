@@ -56,8 +56,8 @@ jobs:
         shell: bash
         run: |
           # sha='git rev-parse HEAD'
-          sha=${{GITHUB_SHA}}
-          echo 'The Sha is ${sha}'
+          sha=${{github.sha}}
+          echo "The Sha is ${sha}"
           npm run setCommit -- sha
 
       - name: Local synthetics
