@@ -52,6 +52,12 @@ jobs:
           npm install
           npm run build --if-present
 
+      - name: set up datadog repository tags
+        shell: bash
+        run: |
+          sha=git rev-parse HEAD
+          npm run setCommit -- sha
+
       - name: Local synthetics
         run: npm run ci
 
