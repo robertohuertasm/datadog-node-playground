@@ -39,6 +39,11 @@ app.get('/error', (req, res) => {
   res.send('Logging error');
 });
 
+app.get('/fatal', (req, res) => {
+  logger.error('throwing error');
+  throw new Error('Fatal Error')
+});
+
 app.get('/warn', (req, res) => {
   logger.warn('WARN');
   res.send('Logging warn');
