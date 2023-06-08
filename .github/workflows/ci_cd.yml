@@ -55,7 +55,9 @@ jobs:
       - name: set up datadog repository tags
         shell: bash
         run: |
-          sha=git rev-parse HEAD
+          # sha='git rev-parse HEAD'
+          sha=${{GITHUB_SHA}}
+          echo 'The Sha is ${sha}'
           npm run setCommit -- sha
 
       - name: Local synthetics
