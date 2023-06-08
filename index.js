@@ -1,13 +1,24 @@
 const express = require('express');
 const winston = require('winston');
+require('dotenv').config();
+
+const apiKey = process.env.APIKEY;
+
+const transports = [new winston.transports.Console()];
+
+if (apiKey) {
+  const httpTransportOptions = {
+    host: 'http-intake.logs.datadoghq.com',
+    path: `/api/v2/logs?dd-api-key=${apiKey}&ddsource=nodejs&service=datadog-node-playground`,
+    ssl: true
+  };
+  transports.push(new winston.transports.Http(httpTransportOptions))
+}
 
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.json(),
-  transports: [
-    new winston.transports.Console(),
-    // new winston.transports.File({ filename: 'logs.log' }),
-  ],
+  transports
 });
 
 const app = express();
