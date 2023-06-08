@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App
+name: Release
 
 on:
   push:
@@ -14,28 +14,6 @@ env:
   DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
 
 jobs:
-  # ignoring tests results. we want them to fail to get some data into datadog.
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Node.js version
-        uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
-
-      - name: Unit tests
-        run: |
-          npm install
-          NODE_OPTIONS="-r dd-trace/ci/init" DD_ENV=ci DD_SERVICE=datadog-node-playground npm run test
-        shell: bash
-        env:
-          DD_CIVISIBILITY_AGENTLESS_ENABLED: true
-          DD_API_KEY: ${{ secrets.DATADOG_API_KEY }}
-          DD_SITE: datadoghq.com
-
   build:
     runs-on: ubuntu-latest
 
