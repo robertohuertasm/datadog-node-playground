@@ -7,6 +7,7 @@ const apiKey = process.env.APIKEY;
 const transports = [new winston.transports.Console()];
 
 if (apiKey) {
+  console.log('Sending logs to Datadog');
   const httpTransportOptions = {
     host: 'http-intake.logs.datadoghq.com',
     path: `/api/v2/logs?dd-api-key=${apiKey}&ddsource=nodejs&service=datadog-node-playground`,
