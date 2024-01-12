@@ -4,13 +4,14 @@ require('dotenv').config();
 
 const apiKey = process.env.APIKEY;
 const commit = process.env.COMMIT;
+const env = process.env.ENV;
 
 const transports = [new winston.transports.Console()];
 
 if (apiKey) {
   console.log('Sending logs to Datadog');
   // https://docs.datadoghq.com/api/latest/logs/
-  let path = `/api/v2/logs?dd-api-key=${apiKey}&ddsource=nodejs&service=datadog-node-playground&ddtags=git.repository_url:github.com/robertohuertasm/datadog-node-playground,env:development`;
+  let path = `/api/v2/logs?dd-api-key=${apiKey}&ddsource=nodejs&service=datadog-node-playground&ddtags=git.repository_url:github.com/robertohuertasm/datadog-node-playground,env:${env ?? 'development'}`;
 
   if (commit) {
     path += `,git.commit.sha:${commit}`;
