@@ -8,4 +8,3 @@ Aside from that, at CI/CD level, it will start the server and execute all the sy
 
 Datadog uses `Space Buccaneers organization`.
 
-To test locally, run `npm run start:local`.

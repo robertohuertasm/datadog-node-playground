@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "start:local": "DD_TAGS=git.commit.sha:cbf1432abe1870a901bbb0c69dd97bdea6c07aa7,git.repository_url:github.com/robertohuertasm/datadog-node-playground DD_ENV=development node ./index.js",
     "test": "jest",
     "setCommit": "node ./datadog.setup.js",
     "test:syn": "datadog-ci synthetics run-tests",
