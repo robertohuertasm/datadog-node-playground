@@ -1,5 +1,4 @@
 const express = require('express');
-const winston = require('winston');
 require('dotenv').config();
 
 const logger = require('./logger').logger;
