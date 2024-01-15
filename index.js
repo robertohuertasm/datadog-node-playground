@@ -29,12 +29,14 @@ app.get('/fatal', (req, res) => {
 });
 
 app.get('/warn', (req, res) => {
-  logger.warn('DDNP: WARN');
+  logger.warn(`DDNP: WARN
+  in 2 lines`);
   res.send('Logging warn');
 });
 
 app.get('/debug', (req, res) => {
-  logger.debug('DDNP: DEBUG');
+  logger.debug(`DDNP: DEBUG 
+  in 2 lines`);
   res.send('Logging debug');
 });
 
