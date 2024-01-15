@@ -1,3 +1,4 @@
 {
-  "datadog.ust.service.setup.linkedNames": ["_dd.p.dm"]
+  "datadog.ust.service.setup.linkedNames": ["_dd.p.dm"],
+  "cSpell.words": ["DDNP"]
 }

@@ -31,36 +31,38 @@ const logger = winston.createLogger({
   transports
 });
 
+const log = logger.info;
+
 const app = express();
 const port = 8080;
 
 app.get('/', (req, res) => {
-  logger.info('main entry point called');
+  log('DDNP: main entry point called');
   res.send('Hello World!');
 });
 
 app.get('/info', (req, res) => {
-  logger.info('INFO');
-  res.send('Logging info v3');
+  logger.info(`DDNP: INFO at ${Date.now()} as number`);
+  res.send(`Logging info v3`);
 });
 
 app.get('/error', (req, res) => {
-  logger.error('ERROR');
+  logger.error('DDNP: ERROR');
   res.send('Logging error');
 });
 
 app.get('/fatal', (req, res) => {
-  logger.error('throwing error');
+  logger.error('DDNP: throwing error');
   throw new Error('Fatal Error')
 });
 
 app.get('/warn', (req, res) => {
-  logger.warn('WARN');
+  logger.warn('DDNP: WARN');
   res.send('Logging warn');
 });
 
 app.get('/debug', (req, res) => {
-  logger.debug('DEBUG');
+  logger.debug('DDNP: DEBUG');
   res.send('Logging debug');
 });
 
