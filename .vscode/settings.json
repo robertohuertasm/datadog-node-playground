@@ -1,4 +1,4 @@
 {
   "datadog.ust.service.setup.linkedNames": ["_dd.p.dm"],
-  "cSpell.words": ["DDNP"]
+  "cSpell.words": ["DDNP", "pino"]
 }
