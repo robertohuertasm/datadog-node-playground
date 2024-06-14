@@ -1,4 +1,7 @@
 {
-  "datadog.ust.service.setup.linkedNames": ["_dd.p.dm"],
-  "cSpell.words": ["DDNP", "pino"]
+  "datadog.ust.service.setup.linkedNames": [
+    "_dd.p.dm",
+    "datadog-node-playground"
+  ],
+  "cSpell.words": ["appenders", "DDNP", "pino"]
 }

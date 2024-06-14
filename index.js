@@ -11,6 +11,7 @@ pinoLogger.info('hello from pino');
 const bunyan = require('bunyan');
 const bunyanLogger = bunyan.createLogger({ name: 'bunyanLogger' });
 bunyanLogger.info('hello from bunyan');
+bunyanLogger.debug('this is a debug item');
 
 const log4js = require('log4js');
 log4js.addLayout('json', function (config) {
@@ -29,6 +30,19 @@ const log4jsLogger = log4js.getLogger();
 log4jsLogger.level = 'debug';
 log4jsLogger.info('Hello from log4js');
 
+// const ddLogs = require('@datadog/browser-logs').datadogLogs;
+
+// ddLogs.init({
+//   clientToken: 'client-token',
+//   site: 'app.datadoghq.com',
+//   forwardErrorsToLogs: false,
+//   forwardConsoleLogs: false,
+//   service: 'datadog-node-playground',
+//   env: 'production',
+// });
+
+// ddLogs.logger.debug('message');
+//a
 
 // const log = pinoLogger.info;
 // log('INITIAL LOG');
@@ -37,12 +51,22 @@ const app = express();
 const port = 8080;
 
 app.get('/', (req, res) => {
+  const wtf = 'afasdf';
+  log('DDNP: main entry point called' + wtf + ' hello');
   log('DDNP: main entry point called');
+  log('{}');
+
+  log('{} hola');
+  log(`this is what${'a'}ever`);
+
+  log(`${Date.now()} ${Date.now()}`);
+
   res.send('Hello World!');
 });
 
 app.get('/info', (req, res) => {
   winstonLogger.info(`DDNP: INFO at ${Date.now()} as number`);
+  // winstonLogger.info(`DDNP: INFO at ${Date.now() + `)`} as number`);
   res.send(`Logging info v3`);
 });
 

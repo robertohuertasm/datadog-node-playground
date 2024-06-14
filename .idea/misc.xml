@@ -1,0 +1,17 @@
+<project version="4">
+  <component name="ManuallyLinkedServices">
+    <option name="excludedServices">
+      <set>
+        <option value="licensebat-api" />
+      </set>
+    </option>
+    <option name="services">
+      <set>
+        <option value="datadog-node-playground" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
