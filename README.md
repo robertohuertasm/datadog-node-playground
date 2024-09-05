@@ -6,5 +6,5 @@ Release in GitHub to release in Azure.
 
 Aside from that, at CI/CD level, it will start the server and execute all the synthetic tests against `localhost`.
 
-Datadog uses `Space Buccaneers organization`.
+Datadog uses `ide integrations organization`.
 
