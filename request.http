@@ -1,4 +1,4 @@
-@host = localhost:8080 
+@host = localhost:8081 
 
 
 ### hello world
@@ -19,4 +19,8 @@ Host: {{host}}
 
 ### debug
 GET /debug HTTP/1.1
+Host: {{host}}
+
+### fatal
+GET /fatal HTTP/1.1
 Host: {{host}}

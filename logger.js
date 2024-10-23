@@ -23,7 +23,7 @@ if (apiKey) {
 }
 
 const logger = winston.createLogger({
-  level: 'info',
+  level: 'silly',
   format: winston.format.json(),
   transports
 });

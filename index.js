@@ -48,7 +48,7 @@ log4jsLogger.info('Hello from log4js');
 // log('INITIAL LOG');
 
 const app = express();
-const port = 8080;
+const port = 8081;
 
 app.get('/', (req, res) => {
   const wtf = 'afasdf';
@@ -67,6 +67,10 @@ app.get('/', (req, res) => {
 app.get('/info', (req, res) => {
   winstonLogger.info(`DDNP: INFO at ${Date.now()} as number`);
   // winstonLogger.info(`DDNP: INFO at ${Date.now() + `)`} as number`);
+  // winstonLogger.http(`http message`);
+  winstonLogger.log('error', 'Error with log message')
+  // winstonLogger.verbose(`verbose message`);
+  // winstonLogger.silly(`silly message`);
   res.send(`Logging info v3`);
 });
 
