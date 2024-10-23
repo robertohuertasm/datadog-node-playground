@@ -1,7 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 
-const winstonLogger = require('./logger').logger;
+const winstonLogger = require('./logger').winstonLogger;
 const log = winstonLogger.info;
 
 const app = express();

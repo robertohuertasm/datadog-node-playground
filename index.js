@@ -1,11 +1,12 @@
 const express = require('express');
 require('dotenv').config();
 
-const winstonLogger = require('./logger').logger;
+const loggers = require('./logger');
+
+const winstonLogger = loggers.winstonLogger;
 const log = winstonLogger.info;
 
-const { pino } = require('pino');
-const pinoLogger = pino();
+const pinoLogger = loggers.pinoLogger;
 pinoLogger.info('hello from pino');
 
 const bunyan = require('bunyan');
@@ -71,7 +72,16 @@ app.get('/info', (req, res) => {
   winstonLogger.log('error', 'Error with log message')
   // winstonLogger.verbose(`verbose message`);
   // winstonLogger.silly(`silly message`);
+
+  pinoLogger.fatal('fatal');
+  pinoLogger.error('error');
+  pinoLogger.warn('warn');
+  pinoLogger.info('info');
+  pinoLogger.debug('debug');
+  pinoLogger.trace('trace');
+
   res.send(`Logging info v3`);
+
 });
 
 app.get('/error', (req, res) => {
