@@ -12,7 +12,7 @@ pinoLogger.info('hello from pino');
 const bunyan = require('bunyan');
 const bunyanLogger = bunyan.createLogger({ name: 'bunyanLogger' });
 bunyanLogger.info('hello from bunyan');
-bunyanLogger.debug('this is a debug item');
+bunyanLogger.debug('this is a debug item wtf');
 
 const log4js = require('log4js');
 log4js.addLayout('json', function (config) {
@@ -70,6 +70,8 @@ app.get('/info', (req, res) => {
   // winstonLogger.info(`DDNP: INFO at ${Date.now() + `)`} as number`);
   // winstonLogger.http(`http message`);
   winstonLogger.log('error', 'Error with log message')
+  winstonLogger.info('Error with log message');
+  winstonLogger.log('info', 'Error with log message');
   // winstonLogger.verbose(`verbose message`);
   // winstonLogger.silly(`silly message`);
 

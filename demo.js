@@ -19,6 +19,8 @@ app.get('/info', (req, res) => {
 
 app.get('/error', (req, res) => {
   winstonLogger.error('DDNP: ERROR');
+  winstonLogger.log('error', 'Error with log message');
+  winstonLogger.log('info', 'Error with log message');
   res.send('Logging error');
 });
 
